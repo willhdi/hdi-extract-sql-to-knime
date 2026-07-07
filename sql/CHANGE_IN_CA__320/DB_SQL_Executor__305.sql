@@ -1,0 +1,65 @@
+-- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#305)
+-- Clave      : statement
+
+USE Liberty_pruebas_actuaria
+
+
+declare
+@periodo_contable varchar(6)=$${Speriodo_contable}$$
+
+
+if OBJECT_ID('tempdb.dbo.#reaseguro_siniestros','U') is not null drop table #reaseguro_siniestros
+
+select 
+t1.periodo_contable,
+t1.PROGRAMA_INTERFACE,
+t1.DESCRIPCION_CUENTA_SUB,
+t1.ramo_contable,
+t1.sucursal_prod,
+t1.cod_sucursal,
+t1.Libro,
+t1.sbu,
+t1.RAMO_PROD,
+t1.poliza,
+t1.INTERMEDIARIO_LIDE,
+COALESCE(t1.INTERMEDIARIO_CO,INTERMEDIARIO_LIDE) AS COD_INTERMEDIARIO
+,coalesce(/*pc1.mapped_sapprofitcenter,*/ pc2.mapped_sapprofitcenter, pc3.mapped_sapprofitcenter, pc4.mapped_sapprofitcenter, pc5.mapped_sapprofitcenter, pc6.mapped_sapprofitcenter, pc7.mapped_sapprofitcenter, pc8.mapped_sapprofitcenter, pc9.mapped_sapprofitcenter) cod_profitcenter
+,coalesce(/*pc1.[description],*/ pc2.[description], pc3.[description], pc4.[description], pc5.[description], pc6.[description], pc7.[description], pc8.[description], pc9.[description]) desc_profitcenter
+,coalesce(/*pc1.[description],*/ pc2.lob_g1, pc3.lob_g1, pc4.lob_g1, pc5.lob_g1, pc6.lob_g1, pc7.lob_g1, pc8.lob_g1, pc9.lob_g1) LOB_SAP
+,t1.VALOR_CONCEPTO
+,t1.modalidad
+,t1.Concepto_nivel_3
+,t1.Concepto_nivel_2
+,t1.Concepto_nivel_1 
+,t1.Concepto_nivel_0 
+into #reaseguro_siniestros 
+from #reaseguro_siniestros_co t1
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 1) pc1
+	on t1.ramo_contable = pc1.ramo_contable
+	and t1.ramo_prod = pc1.ramo_producto_tecnico
+	and t1.sucursal_prod = pc1.sucursal_contable
+	and t1.modalidad = pc1.modalidad
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 2) pc2
+	on t1.ramo_contable = pc2.ramo_contable
+	and t1.ramo_prod = pc2.ramo_producto_tecnico
+	and t1.sucursal_prod = pc2.sucursal_contable
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 3) pc3
+	on t1.ramo_contable = pc3.ramo_contable
+	and t1.ramo_prod = pc3.ramo_producto_tecnico
+	and t1.modalidad = pc3.modalidad
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 4) pc4
+	on t1.ramo_contable = pc4.ramo_contable
+	and t1.sucursal_prod = pc4.sucursal_contable
+	and t1.modalidad = pc4.modalidad
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 5) pc5
+	on t1.ramo_contable = pc5.ramo_contable
+	and t1.modalidad = pc5.modalidad
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 6) pc6
+	on t1.ramo_contable = pc6.ramo_contable
+	and t1.sucursal_prod = pc6.sucursal_contable
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 7) pc7
+	on t1.ramo_contable = pc7.ramo_contable
+	and t1.ramo_prod = pc7.ramo_producto_tecnico
+left join (select * from liberty.amocom.homologa_profit_center where opcion = 8) pc8
+	on t1.ramo_contable = pc8.ramo_contable
+cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9) pc9

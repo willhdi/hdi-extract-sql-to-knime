@@ -1,0 +1,8 @@
+-- Nodo KNIME : P&G_COCO\PREMIUM EARN (#64)\DB Query Reader (#332)
+-- Clave      : sql_statement
+
+SELECT 
+--*
+PERIODO_CONTABLE, SUM(VALOR_CONCEPTO) 
+FROM #SI_COCO
+GROUP BY PERIODO_CONTABLE

@@ -1,0 +1,11 @@
+-- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#252)
+-- Clave      : sql_statement
+
+/*select * from #primas_pyg */
+
+select
+* 
+--COUNT(*) 
+--sum(VALOR_CEDIDO),
+--sum(VALOR_CEDIDO_CO)
+from #cocorretaje_completo

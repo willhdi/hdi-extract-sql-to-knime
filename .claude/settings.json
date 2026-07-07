@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/c/Users/WILSON~1.JER/AppData/Local/Temp/claude/c--Users-Wilson-Jerez-OneDrive---HDI-Seguros-Documentos-hdi-extract-sql-to-knime/76b03e76-b48b-492b-a4bc-2809dba64310/scratchpad/knwf\" && find . -type d | sed 's|/[^/]*$||' | sort -u | head -30 && echo \"---TOTAL SQL NODES---\" && find . -type d \\\\\\( -name \"DB Query Reader*\" -o -name \"DB SQL Executor*\" -o -name \"DB Table Selector*\" -o -name \"Database*\" -o -name \"DB Reader*\" -o -name \"DB Connection*\" -o -name \"DB Writer*\" \\\\\\) | wc -l)",
+      "Read(//c/Users/WILSON~1.JER/AppData/Local/Temp/claude/c--Users-Wilson-Jerez-OneDrive---HDI-Seguros-Documentos-hdi-extract-sql-to-knime/76b03e76-b48b-492b-a4bc-2809dba64310/scratchpad/knwf/**)"
+    ]
+  }
+}

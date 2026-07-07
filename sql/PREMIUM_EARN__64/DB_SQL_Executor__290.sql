@@ -1,0 +1,65 @@
+-- Nodo KNIME : P&G_COCO\PREMIUM EARN (#64)\DB SQL Executor (#290)
+-- Clave      : statement
+
+USE Liberty_pruebas_actuaria
+
+if OBJECT_ID('tempdb.dbo.#devengada_ced_ter','U') is not null drop table #devengada_ced_ter
+
+
+select 
+t1.PERIODO_CONTABLE_ANALISIS AS PERIODO_CONTABLE
+,t1.SUCURSAL_PROD
+,t1.RAMO_PROD
+,t1.POLIZA
+,t1.CERTIFICADO
+,t1.DOCUMENTO
+,t2.SBU
+,t1.INTERMEDIARIO_LIDE
+,t1.RAMO_CONTABLE
+,t1.modalidad
+,coalesce(/*pc1.mapped_sapprofitcenter,*/ pc2.mapped_sapprofitcenter, pc3.mapped_sapprofitcenter, pc4.mapped_sapprofitcenter, pc5.mapped_sapprofitcenter, pc6.mapped_sapprofitcenter, pc7.mapped_sapprofitcenter, pc8.mapped_sapprofitcenter, pc9.mapped_sapprofitcenter) as cod_profitcenter
+,coalesce(/*pc1.[description],*/ pc2.[description], pc3.[description], pc4.[description], pc5.[description], pc6.[description], pc7.[description], pc8.[description], pc9.[description]) as desc_profitcenter
+,coalesce(/*pc1.[description],*/ pc2.lob_g1, pc3.lob_g1, pc4.lob_g1, pc5.lob_g1, pc6.lob_g1, pc7.lob_g1, pc8.lob_g1, pc9.lob_g1) as  LOB
+--,t4.cod_profitcenter
+--,t4.desc_profitcenter
+--,t4.cod_sbu_sap
+--,t4.desc_sbu_sap
+,t1.VALOR_CONCEPTO AS VALOR_CONCEPTO	
+into #devengada_ced_ter
+from #final_t t1
+left join 
+liberty.apoyo.dwh_sbu_ramo_prod t2 on t1.ramo_prod = t2.ramo_prod 
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 1) pc1
+	on t1.ramo_contable = pc1.ramo_contable
+	and t1.ramo_prod = pc1.ramo_producto_tecnico
+	and t1.sucursal_prod = pc1.sucursal_contable
+	and t1.modalidad = pc1.modalidad
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 2) pc2
+	on t1.ramo_contable = pc2.ramo_contable
+	and t1.ramo_prod = pc2.ramo_producto_tecnico
+	and t1.sucursal_prod = pc2.sucursal_contable
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 3) pc3
+	on t1.ramo_contable = pc3.ramo_contable
+	and t1.ramo_prod = pc3.ramo_producto_tecnico
+	and t1.modalidad = pc3.modalidad
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 4) pc4
+	on t1.ramo_contable = pc4.ramo_contable
+	and t1.sucursal_prod = pc4.sucursal_contable
+	and t1.modalidad = pc4.modalidad
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 5) pc5
+	on t1.ramo_contable = pc5.ramo_contable
+	and t1.modalidad = pc5.modalidad
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 6) pc6
+	on t1.ramo_contable = pc6.ramo_contable
+	and t1.sucursal_prod = pc6.sucursal_contable
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 7) pc7
+	on t1.ramo_contable = pc7.ramo_contable
+	and t1.ramo_prod = pc7.ramo_producto_tecnico
+left join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 8) pc8
+	on t1.ramo_contable = pc8.ramo_contable
+cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where opcion = 9) pc9
+
+
+--left join
+--liberty.apoyo.dwh_profitcenter t4 on t4.ramo_prod = a.ramo_prod and a.sucursal_prod = t4.sucursal and a.ramo_contable = t4.ramo_contable
+---WHERE PERIODO_CONTABLE >= 202209
