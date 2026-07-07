@@ -1,0 +1,2970 @@
+{
+ "generado": "2026-07-07",
+ "workflow": "P&G_COCO.knwf",
+ "variable_flujo": "periodo_contable",
+ "marcador_variable": "$${Speriodo_contable}$$",
+ "componentes": [
+  {
+   "nombre": "Written_Prem__33",
+   "titulo": "Written Prem (#33)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#29)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__29.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#4)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__4.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#264)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__264.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#30)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__30.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#31)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__31.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#220)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__220.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#222)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__222.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#223)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__223.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#224)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__224.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#225)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__225.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB SQL Executor (#233)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Written_Prem__33/DDL/DB_SQL_Executor__233.sql"
+    },
+    {
+     "nodo": "Written_Prem__33/DB Query Reader (#234)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Written_Prem__33/DML/DB_Query_Reader__234.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "CHANGE_IN_CA__34",
+   "titulo": "CHANGE_IN_CA (#34)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#298)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__298.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#16)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__16.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#305)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__305.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#288)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__288.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#306)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__306.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#308)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__308.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#222)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__222.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#229)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__229.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#330)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__330.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#315)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__315.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#323)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__323.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#324)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__324.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#319)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__319.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#312)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__312.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#316)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__316.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#334)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__334.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#360)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__360.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#342)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__342.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#346)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__346.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#350)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__350.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB SQL Executor (#364)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__364.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__34/DB Query Reader (#365)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__365.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "Gross_Writte__43",
+   "titulo": "Gross Writte (#43)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#2)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__2.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#3)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__3.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB Query Reader (#6)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Gross_Writte__43/DML/DB_Query_Reader__6.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#222)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__222.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#224)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__224.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Gross_Writte__43/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "Gross_Writte__43/DB Query Reader (#229)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Gross_Writte__43/DML/DB_Query_Reader__229.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "PREMIUM_EARN__64",
+   "titulo": "PREMIUM EARN (#64)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#269)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__269.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#294)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__294.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#268)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__268.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#222)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__222.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#227)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__227.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__311.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#258)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__258.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#261)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__261.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#259)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__259.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#257)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__257.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#280)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__280.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#344)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__344.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#346)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__346.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#347)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__347.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#348)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__348.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#349)",
+     "tipo": "executor",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_SQL_Executor__349.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#277)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__277.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#290)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__290.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#288)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__288.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#298)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__298.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#297)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__297.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#296)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__296.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#307)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__307.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#299)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__299.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#303)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__303.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#313)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__313.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#330)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__330.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#331)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__331.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#332)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__332.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#333)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__333.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#350)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__350.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#284)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__284.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#286)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__286.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#353)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__353.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#354)",
+     "tipo": "executor",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_SQL_Executor__354.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#358)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__358.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#292)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__292.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#316)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__316.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#315)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__315.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#314)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__314.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#320)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__320.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#317)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__317.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#318)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__318.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#319)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__319.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#352)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__352.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#359)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__359.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#263)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__263.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#265)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__265.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#325)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__325.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#324)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__324.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#326)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__326.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB SQL Executor (#323)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__64/DDL/DB_SQL_Executor__323.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#321)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__321.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#340)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__340.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#341)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__341.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#342)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__342.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__64/DB Query Reader (#343)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__64/DML/DB_Query_Reader__343.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "COMMISSIONS__216",
+   "titulo": "COMMISSIONS (#216)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#231)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__231.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/PROFIT__275/DB Query Reader (#38)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/PROFIT__275/DML/DB_Query_Reader__38.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/PROFIT__275/DB Query Reader (#271)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/PROFIT__275/DML/DB_Query_Reader__271.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/OTRAS_COMISI__276/DB Query Reader (#249)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/OTRAS_COMISI__276/DML/DB_Query_Reader__249.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#398)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__398.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#228)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__228.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#288)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__288.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#286)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__286.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#291)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__291.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#290)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__290.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__311.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#75)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__75.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#373)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__373.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#195)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__195.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#366)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__366.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#313)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__313.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#320)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__320.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#321)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__321.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#317)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__317.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#319)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__319.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#318)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__318.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#324)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__324.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#380)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__380.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#381)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__381.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#382)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__382.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#76)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__76.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#374)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__374.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#367)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__367.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#368)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__368.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#331)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__331.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#330)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__330.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#329)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__329.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#328)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__328.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#326)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__326.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#325)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__325.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#77)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__77.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#361)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__361.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#369)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__369.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#375)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__375.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#378)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__378.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#379)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__379.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#383)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__383.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#384)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__384.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#385)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__385.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#386)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__386.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#387)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__387.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#397)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__397.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#371)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__371.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#207)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__207.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#214)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__214.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#215)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__215.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#216)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__216.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#280)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__280.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB SQL Executor (#281)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__216/DDL/DB_SQL_Executor__281.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__216/DB Query Reader (#282)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__216/DML/DB_Query_Reader__282.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "SALVAMENTOS__229",
+   "titulo": "SALVAMENTOS (#229)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#181)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__181.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#232)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__232.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#233)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__233.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#222)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__222.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#234)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__234.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#235)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__235.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#236)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__236.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#238)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__238.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#240)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__240.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#242)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__242.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#224)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__224.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#243)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__243.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#244)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__244.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#246)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__246.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#248)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__248.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#254)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__254.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#247)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__247.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#249)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__249.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#250)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__250.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB SQL Executor (#253)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__253.sql"
+    },
+    {
+     "nodo": "SALVAMENTOS__229/DB Query Reader (#252)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/SALVAMENTOS__229/DML/DB_Query_Reader__252.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "RECOBROS__230",
+   "titulo": "RECOBROS (#230)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#181)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__181.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#232)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__232.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#233)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__233.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#222)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__222.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#234)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__234.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#235)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__235.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#236)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__236.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#242)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__242.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#224)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__224.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#243)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__243.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#244)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__244.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#246)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__246.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#248)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__248.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#254)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__254.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#247)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__247.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#249)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__249.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#250)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__250.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB SQL Executor (#253)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/RECOBROS__230/DDL/DB_SQL_Executor__253.sql"
+    },
+    {
+     "nodo": "RECOBROS__230/DB Query Reader (#252)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/RECOBROS__230/DML/DB_Query_Reader__252.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "PREMIUM_EARN__298",
+   "titulo": "PREMIUM EARN (#298)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#363)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__363.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#269)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__269.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#294)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__294.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#268)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__268.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#222)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__222.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#227)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__227.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__311.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#351)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__351.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#357)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__357.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#354)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__354.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#349)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__349.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#347)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__347.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#346)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__346.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#356)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__356.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#350)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__350.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#352)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__352.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#353)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__353.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#359)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__359.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#360)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__360.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#361)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__361.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#362)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__362.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#364)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__364.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#371)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__371.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#372)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__372.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#373)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__373.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#374)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__374.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#375)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__375.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#376)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__376.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#377)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__377.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#284)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__284.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#263)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__263.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#265)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__265.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#325)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__325.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#324)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__324.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#326)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__326.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#323)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__323.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#321)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__321.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#340)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__340.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#341)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__341.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#342)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__342.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#343)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__343.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#365)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__365.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#280)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__280.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#277)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__277.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#290)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__290.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#288)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__288.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#298)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__298.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#297)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__297.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#296)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__296.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#307)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__307.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#299)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__299.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#303)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__303.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#313)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__313.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#286)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__286.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#368)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__368.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#292)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__292.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#316)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__316.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#315)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__315.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#314)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__314.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#320)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__320.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#317)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__317.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB SQL Executor (#318)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/PREMIUM_EARN__298/DDL/DB_SQL_Executor__318.sql"
+    },
+    {
+     "nodo": "PREMIUM_EARN__298/DB Query Reader (#319)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/PREMIUM_EARN__298/DML/DB_Query_Reader__319.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "Recobros_sin__315",
+   "titulo": "Recobros_sin (#315)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "Recobros_sin__315/DB SQL Executor (#313)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Recobros_sin__315/DDL/DB_SQL_Executor__313.sql"
+    },
+    {
+     "nodo": "Recobros_sin__315/DB SQL Executor (#315)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/Recobros_sin__315/DDL/DB_SQL_Executor__315.sql"
+    },
+    {
+     "nodo": "Recobros_sin__315/DB SQL Executor (#314)",
+     "tipo": "executor",
+     "clase": "DML",
+     "archivo": "sql/Recobros_sin__315/DML/DB_SQL_Executor__314.sql"
+    },
+    {
+     "nodo": "Recobros_sin__315/DB Query Reader (#316)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Recobros_sin__315/DML/DB_Query_Reader__316.sql"
+    },
+    {
+     "nodo": "Recobros_sin__315/DB Query Reader (#317)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/Recobros_sin__315/DML/DB_Query_Reader__317.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "CHANGE_IN_CA__320",
+   "titulo": "CHANGE_IN_CA (#320)",
+   "conectado": true,
+   "pasos": [
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#8)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__8.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#9)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__9.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#10)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__10.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#11)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__11.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#13)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__13.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#17)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__17.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#18)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__18.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#19)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__19.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#281)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__281.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#198)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__198.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#298)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__298.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#16)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__16.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#21)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__21.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#216)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__216.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#217)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__217.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#219)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__219.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#218)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__218.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#220)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__220.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#221)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__221.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#222)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__222.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#223)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__223.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#226)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__226.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#229)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__229.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#305)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__305.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#288)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__288.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#306)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__306.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#308)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__308.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#20)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__20.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#22)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__22.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#309)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__309.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB SQL Executor (#310)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__310.sql"
+    },
+    {
+     "nodo": "CHANGE_IN_CA__320/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__311.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "XL_Cost__73",
+   "titulo": "XL_Cost (#73)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "XL_Cost__73/DB SQL Executor (#199)",
+     "tipo": "executor",
+     "clase": "DML",
+     "archivo": "sql/XL_Cost__73/DML/DB_SQL_Executor__199.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB SQL Executor (#194)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/XL_Cost__73/DDL/DB_SQL_Executor__194.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB SQL Executor (#66)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/XL_Cost__73/DDL/DB_SQL_Executor__66.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB Query Reader (#193)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/XL_Cost__73/DML/DB_Query_Reader__193.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB SQL Executor (#206)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/XL_Cost__73/DDL/DB_SQL_Executor__206.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB SQL Executor (#205)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/XL_Cost__73/DDL/DB_SQL_Executor__205.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB Query Reader (#204)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/XL_Cost__73/DML/DB_Query_Reader__204.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB Query Reader (#210)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/XL_Cost__73/DML/DB_Query_Reader__210.sql"
+    },
+    {
+     "nodo": "XL_Cost__73/DB Query Reader (#211)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/XL_Cost__73/DML/DB_Query_Reader__211.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "LOADS__205",
+   "titulo": "LOADS (#205)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "LOADS__205/DB Query Reader (#62)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__62.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#205)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__205.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#66)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__66.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#193)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__193.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#195)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__195.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#196)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__196.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#198)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__198.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#208)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__208.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#210)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__210.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#209)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__209.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#211)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__211.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#212)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__212.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB SQL Executor (#213)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/LOADS__205/DDL/DB_SQL_Executor__213.sql"
+    },
+    {
+     "nodo": "LOADS__205/DB Query Reader (#214)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/LOADS__205/DML/DB_Query_Reader__214.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "GASTOS__221",
+   "titulo": "GASTOS (#221)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "GASTOS__221/DB Query Reader (#62)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/GASTOS__221/DML/DB_Query_Reader__62.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB SQL Executor (#194)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/GASTOS__221/DDL/DB_SQL_Executor__194.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB SQL Executor (#66)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/GASTOS__221/DDL/DB_SQL_Executor__66.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB Query Reader (#220)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/GASTOS__221/DML/DB_Query_Reader__220.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB SQL Executor (#231)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/GASTOS__221/DDL/DB_SQL_Executor__231.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB SQL Executor (#229)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/GASTOS__221/DDL/DB_SQL_Executor__229.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB Query Reader (#230)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/GASTOS__221/DML/DB_Query_Reader__230.sql"
+    },
+    {
+     "nodo": "GASTOS__221/DB Query Reader (#234)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/GASTOS__221/DML/DB_Query_Reader__234.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "IMPUESTOS__225",
+   "titulo": "IMPUESTOS (#225)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "IMPUESTOS__225/DB Query Reader (#62)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/IMPUESTOS__225/DML/DB_Query_Reader__62.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB SQL Executor (#205)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/IMPUESTOS__225/DDL/DB_SQL_Executor__205.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB SQL Executor (#66)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/IMPUESTOS__225/DDL/DB_SQL_Executor__66.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB Query Reader (#220)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/IMPUESTOS__225/DML/DB_Query_Reader__220.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB SQL Executor (#224)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/IMPUESTOS__225/DDL/DB_SQL_Executor__224.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB SQL Executor (#225)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/IMPUESTOS__225/DDL/DB_SQL_Executor__225.sql"
+    },
+    {
+     "nodo": "IMPUESTOS__225/DB Query Reader (#226)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/IMPUESTOS__225/DML/DB_Query_Reader__226.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "COMMISSIONS__278",
+   "titulo": "COMMISSIONS (#278)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#231)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__231.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#228)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__228.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/PROFIT__275/DB Query Reader (#38)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/PROFIT__275/DML/DB_Query_Reader__38.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/PROFIT__275/DB Query Reader (#271)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/PROFIT__275/DML/DB_Query_Reader__271.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/OTRAS_COMISI__276/DB Query Reader (#249)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/OTRAS_COMISI__276/DML/DB_Query_Reader__249.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#288)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__288.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#286)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__286.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#291)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__291.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#290)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__290.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__311.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#75)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__75.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#195)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__195.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#313)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__313.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#315)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__315.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#316)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__316.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#320)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__320.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#321)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__321.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#317)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__317.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#319)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__319.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#318)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__318.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#324)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__324.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#76)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__76.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#331)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__331.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#330)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__330.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#329)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__329.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#328)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__328.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#326)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__326.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#325)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__325.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#361)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__361.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#77)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__77.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#206)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__206.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#338)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__338.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#339)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__339.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#335)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__335.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#336)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__336.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#333)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__333.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#337)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__337.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#334)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__334.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#214)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__214.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#215)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__215.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#216)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__216.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#280)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__280.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB SQL Executor (#281)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS__278/DDL/DB_SQL_Executor__281.sql"
+    },
+    {
+     "nodo": "COMMISSIONS__278/DB Query Reader (#282)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS__278/DML/DB_Query_Reader__282.sql"
+    }
+   ]
+  },
+  {
+   "nombre": "COMMISSIONS___287",
+   "titulo": "COMMISSIONS_ (#287)",
+   "conectado": false,
+   "pasos": [
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#231)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__231.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#228)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__228.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/PROFIT__275/DB Query Reader (#38)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/PROFIT__275/DML/DB_Query_Reader__38.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/PROFIT__275/DB Query Reader (#271)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/PROFIT__275/DML/DB_Query_Reader__271.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/OTRAS_COMISI__276/DB Query Reader (#249)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/OTRAS_COMISI__276/DML/DB_Query_Reader__249.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#288)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__288.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#287)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__287.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#286)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__286.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#291)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__291.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#289)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__289.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#290)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__290.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#311)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__311.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#75)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__75.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#373)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__373.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#195)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__195.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#366)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__366.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#313)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__313.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#320)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__320.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#321)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__321.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#322)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__322.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#317)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__317.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#319)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__319.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#318)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__318.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#324)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__324.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#76)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__76.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#374)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__374.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#197)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__197.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#367)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__367.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#368)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__368.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#331)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__331.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#330)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__330.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#329)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__329.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#328)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__328.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#326)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__326.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#327)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__327.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#325)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__325.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#77)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__77.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#361)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__361.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#369)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__369.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#371)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__371.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#207)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__207.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#214)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__214.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#215)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__215.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#216)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__216.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#280)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__280.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB SQL Executor (#281)",
+     "tipo": "executor",
+     "clase": "DDL",
+     "archivo": "sql/COMMISSIONS___287/DDL/DB_SQL_Executor__281.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#282)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__282.sql"
+    },
+    {
+     "nodo": "COMMISSIONS___287/DB Query Reader (#375)",
+     "tipo": "reader",
+     "clase": "DML",
+     "archivo": "sql/COMMISSIONS___287/DML/DB_Query_Reader__375.sql"
+    }
+   ]
+  }
+ ]
+}
