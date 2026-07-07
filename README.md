@@ -1,7 +1,13 @@
 # hdi-extract-sql-to-knime — SQL del workflow KNIME `P&G_COCO`
 
 Este repositorio contiene **todas las sentencias SQL (475)** extraídas del workflow de KNIME
-[`P&G_COCO.knwf`](P&G_COCO.knwf), organizadas por componente en la carpeta [`sql/`](sql/).
+[`P&G_COCO.knwf`](P&G_COCO.knwf), organizadas por componente en la carpeta [`sql/`](sql/) y
+clasificadas en subcarpetas **`DDL/`** (317 scripts que crean/eliminan objetos) y **`DML/`**
+(158 scripts que solo consultan o manipulan datos).
+
+> 📖 **[docs/FLUJO.md](docs/FLUJO.md)** — explicación detallada de cada parte del flujo:
+> diagrama general, orden de ejecución, qué hace cada componente y el detalle de cada script
+> (operaciones, tablas temporales que crea, fuentes y destinos).
 
 El workflow construye el **P&G técnico (Pérdidas y Ganancias) con distribución por cocorretaje**
 sobre las bases de datos de HDI/Liberty en SQL Server: calcula cada concepto del estado de
@@ -13,18 +19,28 @@ en tablas `PL_COL_DATOS_COCO`.
 
 ```
 ├── P&G_COCO.knwf          # Workflow original de KNIME
+├── docs/
+│   └── FLUJO.md           # Explicación del flujo, componente por componente
 ├── sql/                   # SQL extraído, una carpeta por componente del workflow
 │   ├── CHANGE_IN_CA__320/ # p. ej. componente "CHANGE_IN_CA (#320)"
-│   │   ├── DB_Query_Reader__13.sql
-│   │   ├── DB_SQL_Executor__8.sql
-│   │   └── ...
+│   │   ├── DDL/           # scripts que crean/eliminan objetos (DROP + SELECT INTO, CREATE)
+│   │   │   └── DB_SQL_Executor__8.sql
+│   │   └── DML/           # scripts que solo consultan/manipulan datos (SELECT, INSERT, UPDATE)
+│   │       └── DB_Query_Reader__13.sql
 │   └── ...
 └── tools/
-    └── extract_sql.py     # Script usado para extraer el SQL del .knwf
+    ├── extract_sql.py     # Extrae el SQL del .knwf
+    ├── analyze_classify.py# Clasifica DDL/DML, organiza carpetas y analiza el grafo del workflow
+    └── gen_doc.py         # Genera docs/FLUJO.md a partir del análisis
 ```
 
 Cada archivo `.sql` corresponde a un nodo del workflow (`DB Query Reader` o `DB SQL Executor`)
 e incluye en el encabezado la ruta del nodo dentro del workflow.
+
+**Criterio DDL vs DML**: un script es **DDL** si crea o elimina objetos (`CREATE TABLE`,
+`DROP TABLE`, `ALTER`, `TRUNCATE` o `SELECT … INTO`, que en T-SQL crea la tabla temporal
+destino); es **DML** si solo consulta o manipula datos (`SELECT`, `INSERT`, `UPDATE`,
+`DELETE`). Ver el detalle por script en [docs/FLUJO.md](docs/FLUJO.md).
 
 ## Componentes del workflow
 
