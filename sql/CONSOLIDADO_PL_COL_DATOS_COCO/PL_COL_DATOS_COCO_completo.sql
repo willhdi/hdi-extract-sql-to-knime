@@ -33,6 +33,10 @@
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__2.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#2)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #primas_pyg a partir de liberty.prod.dwh_pol_amp_h, liberty.prod.dwh_polizas_h, liberty.apoyo.dwh_sbu_ramo_prod.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
+-- Nota: SOAT: seguro obligatorio de accidentes de transito.
 
 USE Liberty_pruebas_actuaria
 
@@ -136,6 +140,8 @@ t1.PERIODO_CONTABLE
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__3.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#3)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #primas_pyg_inter a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -177,6 +183,9 @@ PERIODO_CONTABLE
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__197.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#197)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #profit a partir de liberty.amocom.homologa_profit_center.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -231,6 +240,8 @@ cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #corretaje, #cocorretaje_sucursal, #sucursal, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -425,6 +436,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -450,6 +463,8 @@ where marca_corretaje =1
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__219.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#219)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -514,6 +529,8 @@ where marca_corretaje =0
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__222.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#222)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -546,6 +563,8 @@ b.PARTICIPACION is not null and (vr_p_p_sucursal = 0 or (vr_p_p_sucursal = 100 a
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__224.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#224)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #caso2_1, #caso2_2, #caso2_u a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -680,6 +699,8 @@ where a.participacion is null
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DDL/DB_SQL_Executor__226.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB SQL Executor (#226)
 -- Clave      : statement
+-- Que hace: calcula parte de prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro).
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -707,6 +728,8 @@ SELECT * FROM #caso2_1
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DML/DB_Query_Reader__6.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB Query Reader (#6)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * from #primas_pyg_inter
 
@@ -714,6 +737,9 @@ select * from #primas_pyg_inter
 -- ==== [Gross_Writte__43] sql/Gross_Writte__43/DML/DB_Query_Reader__229.sql ====
 -- Nodo KNIME : P&G_COCO\Gross Writte (#43)\DB Query Reader (#229)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima emitida bruta (el valor total de las polizas emitidas, antes de repartir por reaseguro),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: prima emitida: el valor total de la prima de una poliza en el momento en que se emite, sin importar si ya se devengo o no.
 
 SELECT * 
 FROM  #cocorretaje_completo
@@ -733,6 +759,9 @@ WHERE GROSS_WRITTEN_PREMIUM_CO <> 0
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__29.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#29)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #primas_ced_rea a partir de liberty.reservas.CEDIDAS_IAXIS, liberty.apoyo.dwh_sbu_ramo_prod, liberty..
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -845,6 +874,8 @@ pro.desc_sbu_sap
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__30.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#30)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #cedidas_pyg a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -885,6 +916,9 @@ Intermediario_lide
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__197.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#197)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #cedidas a partir de liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -918,6 +952,8 @@ intermediarios_unicos p on ced.RAMO_prod = p.ramo_prod and ced.poliza = p.pol --
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #corretaje, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -1031,6 +1067,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -1056,6 +1094,8 @@ where marca_corretaje =1
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__219.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#219)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -1090,6 +1130,8 @@ where marca_corretaje =0
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__224.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#224)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -1120,6 +1162,8 @@ on (concat(ltrim(rtrim(A.RAMO_prod)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__233.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#233)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -1143,6 +1187,9 @@ SELECT * FROM #caso1
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DDL/DB_SQL_Executor__264.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB SQL Executor (#264)
 -- Clave      : statement
+-- Que hace: calcula parte de prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora).
+-- Arma la tabla temporal #profit_ced a partir de liberty.amocom.homologa_profit_center.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -1196,6 +1243,8 @@ cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__4.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#4)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -1211,6 +1260,8 @@ group by periodo_contable
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__31.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#31)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * from #cedidas_pyg
 
@@ -1218,6 +1269,8 @@ select * from #cedidas_pyg
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__220.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#220)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -1231,6 +1284,8 @@ from #cocorretaje_sn
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__222.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#222)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -1245,6 +1300,8 @@ from #no_coco
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__223.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#223)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -1258,6 +1315,8 @@ from #si_coco
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__225.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#225)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -1272,6 +1331,10 @@ from #caso1
 -- ==== [Written_Prem__33] sql/Written_Prem__33/DML/DB_Query_Reader__234.sql ====
 -- Nodo KNIME : P&G_COCO\Written Prem (#33)\DB Query Reader (#234)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para prima cedida al reaseguro (la parte de la prima que se traspasa a la reaseguradora),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: prima cedida: la parte de la prima que la aseguradora le traspasa a un reasegurador porque comparte el riesgo con el.
+-- Nota: cedidas: operaciones (primas, siniestros, comisiones) que se traspasaron al reasegurador.
 
 /*select * from #primas_pyg */
 
@@ -1296,6 +1359,9 @@ from #cocorretaje_completo
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__75.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#75)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retorno a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -1540,6 +1606,9 @@ a.mdpek
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__76.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#76)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #directa a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -1787,6 +1856,9 @@ a.mdpek
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__77.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#77)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #reaseguro a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -1992,6 +2064,9 @@ a.MDPEK
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__195.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#195)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retornos_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2045,6 +2120,9 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__197.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#197)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #directa_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2098,6 +2176,9 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__214.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#214)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #sobre a partir de liberty., liberty.comercial.DWH_OC_REMUNERACION_TECNICO_H, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2164,6 +2245,9 @@ a.PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__215.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#215)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #sobre_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2210,6 +2294,9 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__228.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#228)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retorno_22 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2263,6 +2350,9 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__231.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#231)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retorno_2 a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2390,6 +2480,9 @@ b.DCPEKN
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__280.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#280)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #reaseguro_impuestos a partir de liberty.middleware.dwh_reaseguro_h, liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2431,6 +2524,9 @@ where periodo = @periodo_contable and cuenta_local = 411631 and SUBCUENTA_LOCAL 
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__281.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#281)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #reaseguro_impuestos_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2477,6 +2573,8 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__286.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#286)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2502,6 +2600,8 @@ where marca_corretaje =1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__287.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#287)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2536,6 +2636,8 @@ where marca_corretaje =0
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__288.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#288)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #corretaje, #cocorretaje_sucursal, #sucursal, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -2688,6 +2790,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__289.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#289)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2731,6 +2835,8 @@ alter table #no_coco_completo drop column id
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__290.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#290)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2758,6 +2864,8 @@ SELECT * FROM #caso1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__291.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#291)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2787,6 +2895,9 @@ b.PARTICIPACION is not null
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__313.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#313)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retornos_docu a partir de liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -2828,6 +2939,8 @@ left join  #pol c on a.ramo_prod = c.ramo_prod and a.poliza = c.poliza and a.cer
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__317.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#317)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #caso1_i a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2857,6 +2970,8 @@ b.PARTICIPACION is not null
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__318.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#318)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #cocorretaje_completo_i a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2884,6 +2999,8 @@ SELECT * FROM #caso1_i
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__319.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#319)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco_completo_i a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -2927,6 +3044,8 @@ alter table #no_coco_completo_i drop column id
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__320.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#320)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #corretaje, #cocorretaje_sucursal_i, #sucursal_i, #cocorretaje_sn_i a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -3079,6 +3198,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__321.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#321)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco, #no_coco_r2 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3113,6 +3234,8 @@ where marca_corretaje =0
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__322.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#322)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #si_coco_r2, #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3138,6 +3261,8 @@ where marca_corretaje =1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__326.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#326)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco_completo_d a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3162,6 +3287,8 @@ alter table #no_coco_completo_d drop column id
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__327.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#327)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #cocorretaje_completo_d a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3189,6 +3316,8 @@ SELECT * FROM #caso1_d
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__328.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#328)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #caso1_d a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3218,6 +3347,8 @@ b.PARTICIPACION is not null
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__329.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#329)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #si_coco_d, #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3243,6 +3374,8 @@ where marca_corretaje =1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__330.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#330)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #no_coco, #no_coco_d a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -3277,6 +3410,8 @@ where marca_corretaje =0
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__331.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#331)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #corretaje, #cocorretaje_sucursal_d, #sucursal_d, #cocorretaje_sn_d a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -3429,6 +3564,9 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__366.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#366)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #pol, #recibo a partir de liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3477,6 +3615,9 @@ group by ramo_prod,poliza,certificado,recibo
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__367.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#367)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #pol, #recibo2 a partir de liberty.prod.dwh_polizas_h.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3526,6 +3667,9 @@ group by ramo_prod,poliza,certificado,recibo
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__368.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#368)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #directa_docu a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3566,6 +3710,9 @@ left join  #pol c on a.ramo_prod = c.ramo_prod and a.poliza = c.poliza and a.cer
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__371.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#371)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #reaseguro_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3617,6 +3764,9 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__373.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#373)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retorno_p a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3685,6 +3835,9 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__374.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#374)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #directa_p a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3754,6 +3907,9 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__397.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#397)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #reaseguro_p a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3823,6 +3979,9 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DDL/DB_SQL_Executor__398.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB SQL Executor (#398)
 -- Clave      : statement
+-- Que hace: calcula parte de las comisiones que se pagan a los intermediarios y la comision de reaseguro.
+-- Arma la tabla temporal #retorno_p a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -3891,6 +4050,8 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__207.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#207)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT
 *
@@ -3900,6 +4061,8 @@ FROM #REASEGURO_1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__216.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#216)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT * FROM #SOBRE_1
 
@@ -3907,6 +4070,8 @@ SELECT * FROM #SOBRE_1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__282.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#282)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT * FROM #REASEGURO_impuestos_1
 
@@ -3914,6 +4079,8 @@ SELECT * FROM #REASEGURO_impuestos_1
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__311.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#311)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 USE Liberty_pruebas_actuaria
 
@@ -3961,6 +4128,8 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__324.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#324)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 USE Liberty_pruebas_actuaria
 
@@ -4009,6 +4178,8 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__325.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#325)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 USE Liberty_pruebas_actuaria
 
@@ -4056,6 +4227,8 @@ PERIODO_CONTABLE
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__361.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#361)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4075,6 +4248,8 @@ group by periodo_contable
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__369.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#369)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4090,6 +4265,8 @@ group by periodo_contable,concepto_nivel_2
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__375.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#375)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4105,6 +4282,8 @@ group by periodo_contable,concepto_nivel_2
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__378.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#378)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4121,6 +4300,8 @@ group by periodo_contable
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__379.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#379)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4136,6 +4317,8 @@ group by periodo_contable,concepto_nivel_2
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__380.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#380)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4156,6 +4339,8 @@ CONCEPTO_NIVEL_3
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__381.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#381)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4176,6 +4361,8 @@ CONCEPTO_NIVEL_3
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__382.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#382)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4196,6 +4383,8 @@ CONCEPTO_NIVEL_3
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__383.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#383)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4211,6 +4400,8 @@ from #caso1_d
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__384.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#384)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4225,6 +4416,8 @@ from #si_coco_d
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__385.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#385)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4241,6 +4434,8 @@ group by periodo_contable,cuenta_LOCAL,subcuenta_local
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__386.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#386)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4255,6 +4450,8 @@ group by concepto_nivel_2
 -- ==== [COMMISSIONS__216] sql/COMMISSIONS__216/DML/DB_Query_Reader__387.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\DB Query Reader (#387)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para las comisiones que se pagan a los intermediarios y la comision de reaseguro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -4269,6 +4466,9 @@ group by concepto_nivel_2
 -- ==== [COMMISSIONS__216/OTRAS_COMISI__276] sql/COMMISSIONS__216/OTRAS_COMISI__276/DML/DB_Query_Reader__249.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\OTRAS COMISI (#276)\DB Query Reader (#249)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para otras comisiones o retornos adicionales dentro del calculo de comisiones,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Toma datos principalmente de: liberty.apoyo.dwh_profitcenter.
 
 select * from liberty.apoyo.dwh_profitcenter
 
@@ -4276,6 +4476,9 @@ select * from liberty.apoyo.dwh_profitcenter
 -- ==== [COMMISSIONS__216/PROFIT__275] sql/COMMISSIONS__216/PROFIT__275/DML/DB_Query_Reader__38.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\PROFIT (#275)\DB Query Reader (#38)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para la atribucion de las comisiones al profit center (unidad de negocio) correspondiente,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Toma datos principalmente de: liberty.apoyo.dwh_profitcenter.
 
 select * from liberty.apoyo.dwh_profitcenter
 
@@ -4283,6 +4486,9 @@ select * from liberty.apoyo.dwh_profitcenter
 -- ==== [COMMISSIONS__216/PROFIT__275] sql/COMMISSIONS__216/PROFIT__275/DML/DB_Query_Reader__271.sql ====
 -- Nodo KNIME : P&G_COCO\COMMISSIONS (#216)\PROFIT (#275)\DB Query Reader (#271)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para la atribucion de las comisiones al profit center (unidad de negocio) correspondiente,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Toma datos principalmente de: liberty.apoyo.dwh_intermediarios_total, LIBERTY..
 
 select distinct
 nit_cc,
@@ -4315,6 +4521,9 @@ left join  LIBERTY.[APOYO].[DWH_REDCOMERCIAL_INTERMEDIARIOS] lider on total.cod_
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__8.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#8)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_pagado a partir de liberty.sini.DWH_S_NOV_CONT_D, liberty.sini.dwh_s_maestro_d, liberty.apoyo.dwh_sbu_ramo_prod.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -4373,6 +4582,9 @@ t4.desc_sbu_sap
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__10.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#10)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_reserva a partir de liberty.sini.DWH_S_NOV_CONT_D, liberty.sini.dwh_s_maestro_d, liberty.apoyo.dwh_sbu_ramo_prod.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -4430,6 +4642,8 @@ t4.desc_sbu_sap
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__11.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#11)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_pagado_pyg a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -4461,6 +4675,9 @@ desc_sbu_sap
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__16.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#16)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_incurrido a partir de liberty.prod.dwh_polizas_h, liberty.sini.DWH_S_NOV_CONT_D, liberty.sini.dwh_s_maestro_d.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -4622,6 +4839,8 @@ a.SUCURSAL_contable
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__17.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#17)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_reserva_pyg a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -4653,6 +4872,8 @@ desc_sbu_sap
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__20.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#20)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #sini_incurrido_pyg a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -4688,6 +4909,9 @@ desc_sbu_sap
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__197.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#197)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #reaseguro_siniestros a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -4759,6 +4983,8 @@ where mdpek = @periodo_contable  and  mdobj in (411640,411645)  and mdsct in (01
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #corretaje_sin, #corretaje, #cocorretaje_sucursal_sini, #sucursal_sin, #cocorretaje_sn_sin a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -4908,6 +5134,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje_sin) B ON (concat(ltrim(rt
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -4954,6 +5182,8 @@ where marca_corretaje =1
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__219.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#219)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -4982,6 +5212,8 @@ where marca_corretaje =0
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__222.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#222)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -5015,6 +5247,8 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__226.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#226)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -5040,6 +5274,9 @@ SELECT * FROM #caso1
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__281.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#281)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #reaseguro_siniestros_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5086,6 +5323,9 @@ PERIODO_CONTABLE
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__287.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#287)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #reaseguro_siniestros_co, #reaseguro_siniestros a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5161,6 +5401,9 @@ where mdpek >=  @periodo_contable  and  mdobj in (411640,411645)  and mdsct in (
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__289.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#289)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #reaseguro_siniestros_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5216,6 +5459,9 @@ PERIODO_CONTABLE
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__298.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#298)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #RT_Apoyo_p_coaseg a partir de Liberty.PROD.DWH_POLIZAS_H.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -5251,6 +5497,9 @@ ON #RT_Apoyo_p_coaseg(poliza,certificado,RECIBO)
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__305.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#305)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #reaseguro_siniestros a partir de liberty.amocom.homologa_profit_center.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5319,6 +5568,9 @@ cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__308.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#308)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #profit a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5373,6 +5625,9 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DDL/DB_SQL_Executor__310.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB SQL Executor (#310)
 -- Clave      : statement
+-- Que hace: calcula parte de los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje.
+-- Arma la tabla temporal #profit a partir de liberty.amocom.homologa_profit_center.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5427,6 +5682,8 @@ cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__9.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#9)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select count(*) from #sini_pagado
 
@@ -5434,6 +5691,8 @@ select count(*) from #sini_pagado
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__13.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#13)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select count(*) from #sini_reserva
 
@@ -5441,6 +5700,8 @@ select count(*) from #sini_reserva
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__18.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#18)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select count(*) from #sini_reserva_pyg
 
@@ -5448,6 +5709,8 @@ select count(*) from #sini_reserva_pyg
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__19.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#19)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select count(*) from #sini_pagado_pyg
 
@@ -5455,6 +5718,8 @@ select count(*) from #sini_pagado_pyg
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__21.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#21)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select 
 *
@@ -5465,6 +5730,8 @@ from #sini_incurrido
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__22.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#22)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * from #sini_incurrido_pyg
 
@@ -5472,6 +5739,8 @@ select * from #sini_incurrido_pyg
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__198.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#198)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #reaseguro_siniestros_1
 where valor_concepto <> 0
@@ -5480,6 +5749,8 @@ where valor_concepto <> 0
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__217.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#217)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
     
@@ -5498,6 +5769,8 @@ FROM #cocorretaje_sn_sin
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__220.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#220)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -5514,6 +5787,8 @@ from #no_coco
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__221.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#221)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -5530,6 +5805,8 @@ from #si_coco
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__223.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#223)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 
 
@@ -5544,6 +5821,8 @@ from #caso1
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__229.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#229)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT * 
 FROM  #cocorretaje_completo
@@ -5553,6 +5832,8 @@ WHERE VR_INCURRIDO_CO <> 0
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__288.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#288)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #reaseguro_siniestros_1
 where valor_concepto <> 0
@@ -5561,6 +5842,8 @@ where valor_concepto <> 0
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__306.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#306)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #reaseguro_siniestros 
 where valor_concepto <> 0
@@ -5569,6 +5852,8 @@ where valor_concepto <> 0
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__309.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#309)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select 
 *
@@ -5580,6 +5865,8 @@ where ramo_prod = 'BO'
 -- ==== [CHANGE_IN_CA__320] sql/CHANGE_IN_CA__320/DML/DB_Query_Reader__311.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#320)\DB Query Reader (#311)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los siniestros pagados y la variacion (change in case) de la reserva de siniestros, version cocorretaje,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select 
 *
@@ -5601,6 +5888,9 @@ where ramo_prod = 'BO'
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__16.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#16)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #documentos_unicos, #documento_sin, #sini_incurrido a partir de liberty.prod.dwh_polizas_h, liberty.sini.dwh_s_maestro_d, liberty..
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -5729,6 +6019,8 @@ where libro = 'AA' and documento_final is null
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #corretaje_sin, #corretaje, #cocorretaje_sucursal_sini, #sucursal_sin, #cocorretaje_sn_sin a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -5878,6 +6170,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje_sin) B ON (concat(ltrim(rt
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -5924,6 +6218,8 @@ where marca_corretaje =1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__219.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#219)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -5952,6 +6248,8 @@ where marca_corretaje =0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__222.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#222)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -5983,6 +6281,8 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__226.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#226)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -6008,6 +6308,9 @@ SELECT * FROM #caso1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__287.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#287)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #reaseguro_siniestros_co a partir de liberty., liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6052,6 +6355,9 @@ where mdpek >=  @periodo_contable  and  mdobj in (411640,411645)  and mdsct in (
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__289.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#289)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #reaseguro_siniestros_1 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6107,6 +6413,9 @@ PERIODO_CONTABLE
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__298.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#298)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #RT_Apoyo_p_coaseg a partir de Liberty.PROD.DWH_POLIZAS_H.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -6142,6 +6451,9 @@ ON #RT_Apoyo_p_coaseg(poliza,certificado,RECIBO)
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__305.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#305)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #reaseguro_siniestros a partir de liberty.amocom.homologa_profit_center.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6210,6 +6522,9 @@ cross join (select * from liberty.amocom.homologa_profit_center where opcion = 9
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__308.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#308)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #sini_incurrido_1 a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6264,6 +6579,8 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__312.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#312)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -6289,6 +6606,9 @@ SELECT * FROM #caso1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__315.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#315)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #sini_incurrido_v_1 a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6342,6 +6662,8 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__319.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#319)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -6375,6 +6697,8 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__322.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#322)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #corretaje_sin, #corretaje, #cocorretaje_sucursal_sini, #sucursal_sin, #cocorretaje_sn_sin a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -6524,6 +6848,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje_sin) B ON (concat(ltrim(rt
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__323.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#323)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -6552,6 +6878,8 @@ where marca_corretaje =0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__324.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#324)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -6598,6 +6926,9 @@ where marca_corretaje =1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__327.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#327)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #documento_sin, #sini_incurrido_va a partir de liberty.sini.dwh_s_maestro_d, liberty., liberty.apoyo.dwh_sbu_ramo_prod.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -6887,6 +7218,9 @@ where libro = 'AA' and documento_final is null
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__330.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#330)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #RT_Apoyo_p_coaseg a partir de Liberty.PROD.DWH_POLIZAS_H.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -6922,6 +7256,9 @@ ON #RT_Apoyo_p_coaseg(poliza,certificado,RECIBO)
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__342.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#342)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #documento_sin, #sini_incurrido_v_r a partir de liberty.sini.dwh_s_maestro_d, liberty., liberty.apoyo.dwh_sbu_ramo_prod.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -7010,6 +7347,9 @@ left join #documento_sin b  on  convert(int,a.numero_siniestro) = b.radicacion
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__346.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#346)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #sini_incurrido_v_r_1 a partir de liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -7064,6 +7404,9 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit where
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__360.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#360)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #RT_Apoyo_p_coaseg a partir de Liberty.PROD.DWH_POLIZAS_H.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7099,6 +7442,9 @@ ON #RT_Apoyo_p_coaseg(poliza,certificado,RECIBO)
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DDL/DB_SQL_Executor__364.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB SQL Executor (#364)
 -- Clave      : statement
+-- Que hace: calcula parte de el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro.
+-- Arma la tabla temporal #sini_incurrido_v_r_11 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_pruebas_actuaria
 
@@ -7154,6 +7500,8 @@ PERIODO_CONTABLE
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__229.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#229)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT * 
 FROM  #cocorretaje_completo
@@ -7163,6 +7511,8 @@ WHERE VALOR_CONCEPTO_CO <> 0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__288.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#288)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #reaseguro_siniestros_1
 where valor_concepto <> 0
@@ -7171,6 +7521,8 @@ where valor_concepto <> 0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__306.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#306)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #reaseguro_siniestros 
 where valor_concepto <> 0
@@ -7179,6 +7531,8 @@ where valor_concepto <> 0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__316.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#316)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT * 
 FROM  #cocorretaje_completo
@@ -7188,6 +7542,8 @@ WHERE VALOR_CONCEPTO_CO <> 0
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__334.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#334)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select 
 *
@@ -7198,6 +7554,8 @@ from #sini_incurrido_v_1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__350.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#350)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select 
 *
@@ -7208,6 +7566,8 @@ from #sini_incurrido_v_1
 -- ==== [CHANGE_IN_CA__34] sql/CHANGE_IN_CA__34/DML/DB_Query_Reader__365.sql ====
 -- Nodo KNIME : P&G_COCO\CHANGE_IN_CA (#34)\DB Query Reader (#365)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para el movimiento de la reserva de siniestros (cuanto se espera pagar por siniestros abiertos) de un periodo a otro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * From  #sini_incurrido_v_r_11
 where valor_concepto <> 0
@@ -7225,6 +7585,10 @@ where valor_concepto <> 0
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__181.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#181)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #salvamentos_As400 a partir de liberty..
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
+-- Nota: comision: el pago que recibe un intermediario (agente o corredor) por vender o gestionar una poliza.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7263,6 +7627,8 @@ where DTPEKN = @PERIODO_CONTABLE AND DTTNNU IN (30)--, 143, 153, 142)
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #corretaje, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -7353,6 +7719,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7378,6 +7746,8 @@ where marca_corretaje =1
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__224.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#224)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7408,6 +7778,9 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__226.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#226)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #salvamentos_iaxis a partir de liberty..
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7444,6 +7817,9 @@ where substring(cast(IVFECI as varchar(8)),0,7) = @periodo_contable and IVCTIV I
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__232.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#232)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #s_as400 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7477,6 +7853,9 @@ left join #homologacion_contable c on a.ramo_prod = c.ramo_prod
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__233.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#233)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #s_as400_d a partir de liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7518,6 +7897,9 @@ liberty.apoyo.dwh_profitcenter t4 on t4.ramo_prod = a.RAMO_PROD and a.SUCURSAL_p
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__234.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#234)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #s_iaxis a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7551,6 +7933,9 @@ left join #homologacion_contable c on a.ramo_prod = c.ramo_prod
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__235.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#235)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #s_iaxis_d a partir de liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -7595,6 +7980,8 @@ left join
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__242.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#242)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7629,6 +8016,8 @@ where marca_corretaje =0
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__243.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#243)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7652,6 +8041,8 @@ SELECT * FROM #caso1
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__247.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#247)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7677,6 +8068,8 @@ where marca_corretaje =1
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__248.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#248)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #corretaje, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -7767,6 +8160,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__250.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#250)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7797,6 +8192,8 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__253.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#253)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7820,6 +8217,8 @@ SELECT * FROM #caso1
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DDL/DB_SQL_Executor__254.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB SQL Executor (#254)
 -- Clave      : statement
+-- Que hace: calcula parte de los ingresos por venta de salvamentos (bienes recuperados de siniestros).
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -7854,6 +8253,8 @@ where marca_corretaje =0
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__222.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#222)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select
 cast(periodo_contable as int) as PERIODO_CONTABLE
@@ -7888,6 +8289,8 @@ periodo_contable
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__236.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#236)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select
 cast(periodo_contable as int) as PERIODO_CONTABLE
@@ -7922,6 +8325,8 @@ periodo_contable
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__238.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#238)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * from #s_iaxis_d
 
@@ -7929,6 +8334,8 @@ select * from #s_iaxis_d
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__240.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#240)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select * from #s_as400_d
 
@@ -7936,6 +8343,8 @@ select * from #s_as400_d
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__244.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#244)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -7950,6 +8359,8 @@ from #cocorretaje_completo
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__246.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#246)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -7963,6 +8374,8 @@ from #no_coco
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__249.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#249)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -7976,6 +8389,11 @@ from #si_coco
 -- ==== [SALVAMENTOS__229] sql/SALVAMENTOS__229/DML/DB_Query_Reader__252.sql ====
 -- Nodo KNIME : P&G_COCO\SALVAMENTOS (#229)\DB Query Reader (#252)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los ingresos por venta de salvamentos (bienes recuperados de siniestros),
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: profit center: unidad de negocio contable a la que se le atribuye el resultado (ingreso o gasto).
+-- Nota: reaseguro: cuando la aseguradora traspasa parte del riesgo (y de la prima o del siniestro) a otra compañia reaseguradora.
+-- Nota: salvamento: el valor que se recupera al vender bienes dañados que quedan luego de pagar un siniestro (por ejemplo, un vehiculo chocado).
 
 /*select * from #primas_pyg */
 
@@ -7999,6 +8417,9 @@ from #cocorretaje_completo
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__181.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#181)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #recobros_As400 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8038,6 +8459,8 @@ AND DTPEKN = @PERIODO_CONTABLE
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__216.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#216)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #corretaje, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -8128,6 +8551,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__218.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#218)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8153,6 +8578,8 @@ where marca_corretaje =1
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__224.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#224)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8183,6 +8610,9 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__226.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#226)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #recobros_iaxis a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8228,6 +8658,9 @@ AND substring(cast(IVFECI as varchar(8)),0,7) =  @periodo_contable
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__232.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#232)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #r_as400 a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8261,6 +8694,9 @@ left join #homologacion_contable c on a.ramo_prod = c.ramo_prod
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__233.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#233)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #r_as400_d a partir de liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8302,6 +8738,9 @@ liberty.apoyo.dwh_profitcenter t4 on t4.ramo_prod = a.RAMO_PROD and a.SUCURSAL_p
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__234.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#234)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #r_iaxis a partir de otras tablas ya calculadas antes en este mismo componente.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8335,6 +8774,9 @@ left join #homologacion_contable c on a.ramo_prod = c.ramo_prod
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__235.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#235)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #r_iaxis_d a partir de liberty.apoyo.dwh_sbu_ramo_prod, liberty.apoyo.dwh_profitcenter.
+-- Usa como filtro el periodo contable (mes/año) que KNIME le pasa como parametro.
 
 USE Liberty_Pruebas_Actuaria
 
@@ -8379,6 +8821,8 @@ left join
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__242.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#242)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8413,6 +8857,8 @@ where marca_corretaje =0
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__243.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#243)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8436,6 +8882,8 @@ SELECT * FROM #caso1
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__247.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#247)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #si_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8461,6 +8909,8 @@ where marca_corretaje =1
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__248.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#248)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #corretaje, #cocorretaje_sn a partir de liberty..
 
 USE Liberty_pruebas_actuaria
 
@@ -8551,6 +9001,8 @@ LEFT JOIN (select distinct LLAVE_CERT from #corretaje) B ON (concat(ltrim(rtrim(
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__250.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#250)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #caso1 a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8581,6 +9033,8 @@ on (concat(ltrim(rtrim(A.RAMO_PROD)),'_',ltrim(rtrim(A.poliza)),'_',A.certificad
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__253.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#253)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #cocorretaje_completo a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8604,6 +9058,8 @@ SELECT * FROM #caso1
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DDL/DB_SQL_Executor__254.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB SQL Executor (#254)
 -- Clave      : statement
+-- Que hace: calcula parte de los recobros: dinero recuperado de terceros luego de pagar un siniestro.
+-- Arma la tabla temporal #no_coco a partir de otras tablas ya calculadas antes en este mismo componente.
 
 USE Liberty_pruebas_actuaria
 
@@ -8638,6 +9094,8 @@ where marca_corretaje =0
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__222.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#222)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select
 cast(periodo_contable as int) as PERIODO_CONTABLE
@@ -8672,6 +9130,8 @@ periodo_contable
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__236.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#236)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 select
 cast(periodo_contable as int) as PERIODO_CONTABLE
@@ -8706,6 +9166,8 @@ periodo_contable
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__244.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#244)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -8720,6 +9182,8 @@ from #cocorretaje_completo
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__246.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#246)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 /*select * from #primas_pyg */
 
@@ -8733,6 +9197,9 @@ from #no_coco
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__249.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#249)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: SI_COCO / NO_COCO: forma de separar las polizas segun si tienen cocorretaje (varios intermediarios compartiendo la poliza) o no.
 
 /*select * from #primas_pyg */
 
@@ -8746,6 +9213,9 @@ from #si_coco
 -- ==== [RECOBROS__230] sql/RECOBROS__230/DML/DB_Query_Reader__252.sql ====
 -- Nodo KNIME : P&G_COCO\RECOBROS (#230)\DB Query Reader (#252)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los recobros: dinero recuperado de terceros luego de pagar un siniestro,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: cocorretaje: cuando dos o mas intermediarios (corredores/agentes) comparten una misma poliza y cada uno recibe una parte del negocio segun su porcentaje de PARTICIPACION.
 
 /*select * from #primas_pyg */
 
@@ -8770,6 +9240,8 @@ from #cocorretaje_completo
 -- ==== [Recobros_sin__315] sql/Recobros_sin__315/DDL/DB_SQL_Executor__313.sql ====
 -- Nodo KNIME : P&G_COCO\Recobros_sin (#315)\DB SQL Executor (#313)
 -- Clave      : statement
+-- Que hace: calcula parte de los descuentos comerciales aplicados sobre siniestros.
+-- Arma la tabla temporal #recobros a partir de LIBERTY_PRUEBAS_ACTUARIA.DBO.PL_Descuentos_comerciales_siniestros, liberty_pruebas_actuaria.dbo.PnL_Homologa_profit.
 
 USE Liberty_pruebas_actuaria
 
@@ -8816,6 +9288,11 @@ cross join (select * from liberty_pruebas_actuaria.dbo.PnL_Homologa_profit  wher
 -- ==== [Recobros_sin__315] sql/Recobros_sin__315/DDL/DB_SQL_Executor__315.sql ====
 -- Nodo KNIME : P&G_COCO\Recobros_sin (#315)\DB SQL Executor (#315)
 -- Clave      : statement
+-- Que hace: calcula parte de los descuentos comerciales aplicados sobre siniestros.
+-- Arma la tabla temporal #recobros2 a partir de liberty.apoyo.dwh_sbu_ramo_prod.
+-- Nota: PARTICIPACION: el porcentaje que le corresponde a cada intermediario sobre una poliza compartida.
+-- Nota: SBU: segmento/unidad estrategica de negocio usada para agrupar ramos.
+-- Nota: change in case (o CHANGE_IN_CA): la variacion, entre un periodo y otro, del valor estimado que se espera pagar por los siniestros abiertos.
 
 USE Liberty_pruebas_actuaria
 
@@ -8896,6 +9373,8 @@ PERIODO_CONTABLE
 -- ==== [Recobros_sin__315] sql/Recobros_sin__315/DML/DB_SQL_Executor__314.sql ====
 -- Nodo KNIME : P&G_COCO\Recobros_sin (#315)\DB SQL Executor (#314)
 -- Clave      : statement
+-- Que hace: consulta (lee) los resultados ya calculados para los descuentos comerciales aplicados sobre siniestros,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 USE Liberty_pruebas_actuaria
 
@@ -8909,6 +9388,8 @@ from #recobros2 a
 -- ==== [Recobros_sin__315] sql/Recobros_sin__315/DML/DB_Query_Reader__316.sql ====
 -- Nodo KNIME : P&G_COCO\Recobros_sin (#315)\DB Query Reader (#316)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los descuentos comerciales aplicados sobre siniestros,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
 
 SELECT *FROM #recobros
 
@@ -8916,6 +9397,9 @@ SELECT *FROM #recobros
 -- ==== [Recobros_sin__315] sql/Recobros_sin__315/DML/DB_Query_Reader__317.sql ====
 -- Nodo KNIME : P&G_COCO\Recobros_sin (#315)\DB Query Reader (#317)
 -- Clave      : sql_statement
+-- Que hace: consulta (lee) los resultados ya calculados para los descuentos comerciales aplicados sobre siniestros,
+-- dejandolos listos para que KNIME los tome y los inserte en la tabla final.
+-- Nota: recobro (recovery): dinero que la aseguradora recupera de terceros responsables despues de haber pagado un siniestro.
 
 SELECT *FROM #recobros2
 

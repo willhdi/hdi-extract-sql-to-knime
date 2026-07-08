@@ -1,19 +1,28 @@
 # hdi-extract-sql-to-knime — SQL del workflow KNIME `P&G_COCO`
 
 Este repositorio contiene **todas las sentencias SQL (475)** extraídas del workflow de KNIME
-[`P&G_COCO.knwf`](P&G_COCO.knwf), organizadas por componente en la carpeta [`sql/`](sql/) y
-clasificadas en subcarpetas **`DDL/`** (317 scripts que crean/eliminan objetos) y **`DML/`**
-(158 scripts que solo consultan o manipulan datos).
+(KNIME es una herramienta que encadena pasos de procesamiento de datos con "cajitas" visuales,
+sin tener que programar todo a mano) [`P&G_COCO.knwf`](P&G_COCO.knwf). Las sentencias están
+organizadas por componente en la carpeta [`sql/`](sql/) y clasificadas en subcarpetas
+**`DDL/`** (317 scripts que crean/eliminan tablas) y **`DML/`** (158 scripts que solo consultan o
+modifican datos).
 
-> 📖 **[docs/FLUJO.md](docs/FLUJO.md)** — explicación detallada de cada parte del flujo:
-> diagrama general, orden de ejecución, qué hace cada componente y el detalle de cada script
-> (operaciones, tablas temporales que crea, fuentes y destinos).
+El workflow arma el **P&G técnico** (Pérdidas y Ganancias, el estado de resultados contable: cuánto
+entra y cuánto sale de dinero) **con distribución por cocorretaje** (cuando una póliza no la vende un
+solo intermediario sino que se reparte entre varios según un porcentaje) sobre las bases de datos de
+HDI/Liberty en SQL Server. Calcula cada concepto del estado de resultados —prima emitida, prima
+devengada, siniestros, comisiones, gastos, impuestos, recobros, salvamentos, costos de reaseguro,
+etc.— a nivel de póliza / intermediario / profit center (la unidad de negocio contable a la que se le
+atribuye el resultado), y lo consolida en las tablas `PL_COL_DATOS_COCO` y `PL_COL_DATOS`.
 
-El workflow construye el **P&G técnico (Pérdidas y Ganancias) con distribución por cocorretaje**
-sobre las bases de datos de HDI/Liberty en SQL Server: calcula cada concepto del estado de
-resultados (prima emitida, prima devengada, siniestros, comisiones, gastos, impuestos, recobros,
-salvamentos, costos XL, etc.) a nivel de póliza / intermediario / profit center y lo consolida
-en tablas `PL_COL_DATOS_COCO`.
+## 📖 Por dónde empezar
+
+- **[docs/GUIA_COMPLETA.md](docs/GUIA_COMPLETA.md)** — guía única en lenguaje sencillo que explica
+  todo el flujo de principio a fin, con los términos de negocio (prima, siniestro, reaseguro,
+  cocorretaje, profit center, etc.) explicados en el momento en que aparecen. **Empieza por aquí.**
+- **[docs/FLUJO.md](docs/FLUJO.md)** — referencia técnica exhaustiva, archivo por archivo (los 475
+  scripts uno por uno, con su tabla temporal, tipo DDL/DML y fuentes). Úsalo para buscar el detalle de
+  un script puntual, no para leer de corrido.
 
 ## Estructura del repositorio
 
