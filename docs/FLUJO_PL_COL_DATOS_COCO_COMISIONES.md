@@ -1,82 +1,85 @@
-# Flujo que alimenta `PL_COL_DATOS_COCO` (comisiones)
+# ¿De dónde salen los datos de `PL_COL_DATOS_COCO`?
 
-> Nota: en el workflow **no existe** una tabla llamada `pl_col_datos_coco_comisiones`. La tabla real es
-> **`PL_COL_DATOS_COCO`**, y el componente que le inyecta las **comisiones** es `COMMISSIONS (#216)`.
-> Este documento se centra en esa parte del flujo.
+## Lo más importante, en una frase
 
-## 1. ¿De dónde vienen los datos de comisiones?
+`PL_COL_DATOS_COCO` es una tabla donde se guarda, ya calculado, todo el resultado financiero del negocio
+compartido con otros intermediarios (a esto se le llama **"cocorretaje"**: cuando una póliza no la vende
+un solo intermediario, sino que se reparte entre varios según un porcentaje llamado **PARTICIPACION**).
 
-El componente **`COMMISSIONS (#216)`** (carpeta [`sql/COMMISSIONS__216/`](../sql/COMMISSIONS__216/)) calcula:
+Esa tabla **no la llena una sola consulta SQL**. La llenan **8 procesos distintos** (en KNIME, la
+herramienta que orquesta todo esto, cada proceso se llama "componente"). Cada componente calcula un
+pedazo del negocio (prima, comisiones, siniestros, etc.) y al final KNIME toma ese resultado y lo inserta
+en la tabla `PL_COL_DATOS_COCO`.
 
-- **`COMMISSION EXPENSE`** — gasto de comisiones.
-- **`REINSURANCE_COMMISSION`** — comisión de reaseguro.
+No existe ninguna tabla llamada `pl_col_datos_coco_comisiones` — ese nombre no aparece en el proyecto. Lo
+que sí existe es un componente llamado `COMMISSIONS` que calcula las **comisiones** y las guarda dentro
+de `PL_COL_DATOS_COCO` junto con todo lo demás.
 
-Fuentes SQL (tablas del DWH `liberty`, todas por base de datos, **no Excel**):
+## Los 8 procesos que alimentan la tabla
 
-| Tabla fuente | Uso |
-|---|---|
-| `liberty.comercial.DWH_OC_REMUNERACION_TECNICO_H` | Remuneración de intermediarios |
-| `liberty.middleware.DWH_REASEGURO_H` | Cesiones de reaseguro |
-| `liberty.apoyo.DWH_INTERMEDIARIOS_TOTAL` | Catálogo de intermediarios |
-| `liberty.apoyo.DWH_PROFITCENTER` / `DWH_SBU_RAMO_PROD` | Homologación de profit center / SBU |
-| `liberty.prod.DWH_POLIZAS_H` | Pólizas |
-| `liberty_pruebas_actuaria.dbo.DWH_CORRETAJE_H_COMPLETO` | Base de cocorretaje |
-| `liberty_pruebas_actuaria.dbo.PNL_HOMOLOGA_PROFIT` | Homologación de profit center (Etapa 0, ver abajo) |
+| # | Proceso | Qué calcula (en palabras simples) | Dónde está el SQL |
+|---|---|---|---|
+| 1 | **Gross Writte** | Cuánta prima (el dinero que paga el cliente por la póliza) se emitió en el periodo | [`sql/Gross_Writte__43/`](../sql/Gross_Writte__43/) |
+| 2 | **Written Prem** | Cuánta de esa prima se le pasa al reasegurador (**reaseguro** = un seguro que la aseguradora le compra a otra compañía para protegerse de pérdidas grandes) | [`sql/Written_Prem__33/`](../sql/Written_Prem__33/) |
+| 3 | **COMMISSIONS** | Cuánto se paga en comisiones a los intermediarios, y cuánta comisión se recibe del reasegurador | [`sql/COMMISSIONS__216/`](../sql/COMMISSIONS__216/) |
+| 4 | **CHANGE_IN_CA (#320)** | Cómo cambió la reserva de siniestros (el dinero apartado para pagar reclamos que ya pasaron pero aún no se han pagado del todo) | [`sql/CHANGE_IN_CA__320/`](../sql/CHANGE_IN_CA__320/) |
+| 5 | **CHANGE_IN_CA (#34)** | Lo mismo que el anterior, pero incluyendo lo que ya se pagó de siniestros | [`sql/CHANGE_IN_CA__34/`](../sql/CHANGE_IN_CA__34/) |
+| 6 | **SALVAMENTOS** | Dinero recuperado al vender lo que quedó de un bien siniestrado (ej: los restos de un carro chocado) | [`sql/SALVAMENTOS__229/`](../sql/SALVAMENTOS__229/) |
+| 7 | **RECOBROS** | Dinero recuperado de terceros o del reasegurador después de pagar un siniestro | [`sql/RECOBROS__230/`](../sql/RECOBROS__230/) |
+| 8 | **Recobros_sin** | Ajustes/descuentos comerciales que se le aplican a esos recobros | [`sql/Recobros_sin__315/`](../sql/Recobros_sin__315/) |
 
-Dos subcomponentes dentro de `COMMISSIONS (#216)`:
-- **`OTRAS COMISI (#276)`** — otras comisiones/retornos.
-- **`PROFIT (#275)`** — atribución a profit center.
+Cada uno de estos 8 procesos termina con un paso de KNIME llamado "DB Insert", que es el que realmente
+mete los datos ya calculados dentro de `PL_COL_DATOS_COCO`. Ese paso final no tiene un archivo SQL propio
+en este repositorio porque KNIME lo genera internamente (no es una consulta que alguien haya escrito a
+mano); en el SQL consolidado se marca con un comentario que dice `>>> Aquí KNIME ejecuta...` para que quede
+claro dónde ocurre ese paso.
 
-El resultado final se escribe con el nodo **`DB Insert (#218)`** en la tabla permanente **`PL_COL_DATOS_COCO`**.
+El orden de la tabla de arriba es el orden en el que, según la documentación del flujo completo
+([`docs/FLUJO.md`](FLUJO.md)), se van disparando estos procesos. Los pasos 2→4→5→8 tienen conexiones
+explícitas documentadas (uno depende del anterior). El orden de 6 y 7 respecto al resto no se pudo
+confirmar con certeza — está marcado como suposición razonable en el archivo SQL.
 
-## 2. ¿Consume un Excel?
+## Sobre las comisiones en particular
 
-**No directamente en el cálculo de comisiones.** El único Excel relacionado con "comisiones" en todo el workflow es:
+El proceso `COMMISSIONS` calcula dos cosas:
+- **Gasto de comisiones**: lo que la aseguradora le paga a los intermediarios por vender.
+- **Comisión de reaseguro**: lo que la aseguradora recibe del reasegurador como parte del trato de
+  reaseguro.
 
-| Excel | Tabla destino | ¿Se usa en `COMMISSIONS (#216)`? |
-|---|---|---|
-| `Comisiones_HDI.xlsx` | `RETORNOS_HDI` | **No** — no aparece referenciada en ningún script SQL de `COMMISSIONS__216`, ni en el resto del flujo conectado. Se carga en la Etapa 0 pero queda huérfana/sin consumo dentro del cálculo activo. |
+Para esto usa información que ya está en las bases de datos de la compañía (pólizas, intermediarios,
+reaseguro, etc.) — **no lee ningún archivo Excel**. El único Excel que existe con nombre parecido a
+"comisiones" (`Comisiones_HDI.xlsx`) se carga en una etapa inicial del flujo a una tabla llamada
+`RETORNOS_HDI`, pero ninguna consulta del proceso `COMMISSIONS` la usa. Es decir, ese Excel se sube pero
+queda sin conectar a este cálculo.
 
-Es decir: el Excel `Comisiones_HDI.xlsx` se lee al inicio del workflow (nodo `Excel Reader` → `DB Table Creator` → `DB Insert`) y llena la tabla auxiliar `RETORNOS_HDI`, pero **ningún `SELECT`/`JOIN` de los scripts que alimentan `PL_COL_DATOS_COCO` la consulta**. El gasto de comisiones que sí llega a `PL_COL_DATOS_COCO` se calcula 100% desde tablas del DWH (`liberty.*`), no desde el Excel.
+## ¿Dónde está el SQL completo?
 
-> Existen dos variantes adicionales de comisiones (`COMMISSIONS #278` con tablas `amocom.*`, y `COMMISSIONS_ #287`) que **no están conectadas** al nivel superior del workflow — son versiones de respaldo/manuales y tampoco usan el Excel.
+Todo el SQL real (las 203 consultas de los 8 procesos, tal cual como están en el proyecto, sin cambiar
+ni una línea) está unido en un solo archivo, en su propia carpeta, para que se pueda leer de principio a
+fin en orden:
 
-## 3. Diagrama del subflujo
+📄 [`sql/CONSOLIDADO_PL_COL_DATOS_COCO/PL_COL_DATOS_COCO_completo.sql`](../sql/CONSOLIDADO_PL_COL_DATOS_COCO/PL_COL_DATOS_COCO_completo.sql)
 
-```mermaid
-flowchart LR
-    subgraph Etapa0["Etapa 0 — Carga Excel (aislada, no conectada al cálculo)"]
-        X1["Comisiones_HDI.xlsx"] --> T1[("RETORNOS_HDI")]
-    end
+Ese archivo tiene comentarios explicativos en español simple pegados **encima** de cada consulta (sin
+tocar el código original), para que se entienda qué hace cada pedazo sin necesidad de leer el SQL línea
+por línea.
 
-    subgraph DWH["Fuentes DWH liberty.*"]
-        S1[("comercial.DWH_OC_REMUNERACION_TECNICO_H")]
-        S2[("middleware.DWH_REASEGURO_H")]
-        S3[("apoyo.DWH_INTERMEDIARIOS_TOTAL")]
-        S4[("prod.DWH_POLIZAS_H")]
-        S5[("apoyo.DWH_PROFITCENTER / DWH_SBU_RAMO_PROD")]
-        S6[("liberty_pruebas_actuaria.PNL_HOMOLOGA_PROFIT")]
-    end
+⚠️ **Importante:** ese archivo es solo para **leer y entender**, no para ejecutar tal cual contra una base
+de datos real. Al pegar 203 consultas una detrás de otra, varias usan el mismo nombre de tabla temporal
+(las que empiezan con `#`), así que si se corre todo junto se van a pisar entre sí. Cada consulta se debe
+seguir ejecutando dentro de su propio proceso, como ya está organizado en las carpetas `sql/<proceso>/`.
 
-    S1 --> COM
-    S2 --> COM
-    S3 --> COM
-    S4 --> COM
-    S5 --> COM
-    S6 --> COM
+## Resumen para quien tenga prisa
 
-    COM["COMMISSIONS (#216)<br>OTRAS COMISI (#276) + PROFIT (#275)"] -->|DB Insert #218| COCO[("PL_COL_DATOS_COCO")]
+- `PL_COL_DATOS_COCO` = tabla final con toda la plata del negocio compartido (cocorretaje): prima,
+  comisiones, siniestros, salvamentos, recobros.
+- La llenan **8 procesos**, cada uno con su propio SQL, no uno solo.
+- Las **comisiones** las calcula el proceso `COMMISSIONS`, usando datos de las bases de datos internas,
+  **no un Excel**.
+- El SQL completo, comentado y sin modificar, está en
+  [`sql/CONSOLIDADO_PL_COL_DATOS_COCO/PL_COL_DATOS_COCO_completo.sql`](../sql/CONSOLIDADO_PL_COL_DATOS_COCO/PL_COL_DATOS_COCO_completo.sql).
 
-    T1 -. sin conexión real .-x COM
-```
-
-## 4. Resumen
-
-- La tabla correcta es **`PL_COL_DATOS_COCO`**, alimentada (entre otros) por `COMMISSIONS (#216)`.
-- El cálculo de comisiones **no consume el Excel `Comisiones_HDI.xlsx`**; ese archivo solo carga `RETORNOS_HDI`, tabla que queda sin uso en el flujo activo.
-- Todas las fuentes reales del componente de comisiones son tablas del DWH (`liberty.*` y `liberty_pruebas_actuaria.*`).
-
-## Referencias
-- [`docs/FLUJO.md`](FLUJO.md) — sección `COMMISSIONS (#216)` (línea ~303) y Etapa 0 (línea ~74).
-- [`docs/EXPLICACION_FLUJO.md`](EXPLICACION_FLUJO.md) — sección 5, cargas manuales desde Excel.
-- Scripts: [`sql/COMMISSIONS__216/`](../sql/COMMISSIONS__216/)
+## Para profundizar
+- [`docs/FLUJO.md`](FLUJO.md) — detalle técnico completo de todo el workflow (no solo esta tabla).
+- [`docs/EXPLICACION_FLUJO.md`](EXPLICACION_FLUJO.md) — explicación narrada del flujo, incluyendo las
+  cargas desde Excel.
