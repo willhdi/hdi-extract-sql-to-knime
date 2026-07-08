@@ -13,3 +13,10 @@ __pycache__/
 
 # Salidas locales del notebook
 notebooks/salidas/
+
+#Archivos comprimidos
+*.zip
+
+#Archivo con xml 
+P&G_COCO/
+
