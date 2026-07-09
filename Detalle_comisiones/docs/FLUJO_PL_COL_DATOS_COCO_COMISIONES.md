@@ -14,6 +14,50 @@ dentro calcula **5 "conceptos" de comisión en paralelo**, los une, los cruza co
 apoyo y los inserta de una sola vez. Después de esa carga, dos pasos adicionales completan/corrigen datos
 directamente sobre la tabla ya cargada.
 
+## Antes de la tabla: ¿qué significa "#403", "nodo", "DB SQL Executor"?
+
+En este documento vas a ver referencias como `#403`, `#410`, `DB SQL Executor (#403)` o `UPDATE #403`.
+Todo eso se refiere a lo mismo: **cada "cajita" del workflow de KNIME tiene un número de identificación
+único**, que KNIME le pone automáticamente (no lo elige nadie, no tiene un orden de negocio). El `#` es
+solo la forma de escribir ese número. Así que "el nodo #403" y "#403" son lo mismo.
+
+Dentro de esas cajitas hay dos tipos que aparecen mucho en este flujo:
+
+- **`DB SQL Executor`** — una cajita que ejecuta una sentencia SQL escrita a mano tal cual, contra la
+  base de datos. Puede ser un `SELECT INTO` (arma una tabla temporal), o como en `#403` y `#410`, un
+  **`UPDATE`** (modifica filas que ya existen en una tabla real). No devuelve una tabla de resultado hacia
+  el resto del workflow, solo ejecuta el comando.
+- **`DB Query Reader`** — ejecuta un `SELECT` y sí trae el resultado como una tabla para que el workflow
+  siga trabajando con él.
+
+Entonces, cuando este documento dice **"`DB SQL Executor (#403)`: UPDATE tomador/beneficiario/cuentas"**,
+quiere decir: *"la cajita número 403 del workflow contiene un `UPDATE` de SQL escrito a mano, que corrige
+datos de tomador, beneficiario y cuentas contables directamente sobre la tabla `PL_COL_DATOS_COCO_Comisiones`
+que ya tiene los datos cargados"*. No es un paso que inserta filas nuevas — es un paso que **corrige/completa
+columnas de filas que ya están ahí** (por eso corre después de la carga, no antes).
+
+## Tabla resumen: cómo se alimenta la tabla, paso a paso
+
+| Paso | Nodo(s) KNIME | Tipo de operación | ¿Qué lee? | ¿Qué hace con `PL_COL_DATOS_COCO_Comisiones`? |
+|---|---|---|---|---|
+| 1 | `DB SQL Executor` **#75** → … → `DB Query Reader` **#324** | `SELECT` que arma tablas temporales y las agrupa | `liberty.middleware.BASE_H` (cuentas 513095, 419595, 429595, 519585) | Calcula el concepto **Retornos**; todavía no toca la tabla final, solo prepara datos en memoria |
+| 2 | `DB SQL Executor` **#76** → … → `DB Query Reader` **#325** | `SELECT` que arma tablas temporales y las agrupa | `liberty.middleware.BASE_H` (cuentas 511561, 511570, 411508, 511545) | Calcula el concepto **Comision_intermediacion**; todavía no toca la tabla final |
+| 3 | `DB SQL Executor` **#77** → … → `DB Query Reader` **#207** | `SELECT` que arma tablas temporales y las agrupa | `liberty.middleware.BASE_REASEGUROS_H` (cuentas 411631, 511677) | Calcula el concepto **Comision_reaseguro**; todavía no toca la tabla final |
+| 4 | `DB SQL Executor` **#214** → … → `DB Query Reader` **#216** | `SELECT` que arma tablas temporales y las agrupa | `liberty.comercial.DWH_OC_REMUNERACION_TECNICO_H` | Calcula el concepto **SobreComision**; todavía no toca la tabla final |
+| 5 | `DB SQL Executor` **#231** → … → `DB Query Reader` **#311** | `SELECT` que arma tablas temporales y las agrupa | `liberty.AS400.F590475`, `liberty.AS400.REFPAGOS` | Calcula el concepto **Retornos_a**; todavía no toca la tabla final |
+| 6a | `Concatenate` **#267 → #199 → #209 → #343** | Unión (UNION) de tablas, sin SQL propio | Los resultados de los pasos 1 a 5 | Junta los 5 conceptos en una sola tabla, en memoria (aún no se ha cargado nada) |
+| 6b | `Joiner` **#200** y **#211** | Cruce (JOIN) con Excel, sin SQL propio | Excel `Canales y Sucursales.xlsx` (#48) y `Sucursales Andes 2023.xlsx` (#212) | Le agrega a esas filas el canal comercial y la sucursal |
+| 6c | `Column Expressions` **#236**, `Row Filter` **#401** | Ajustes de columnas y filtro, sin SQL propio | — | Deja listas las columnas finales y filtra solo el `PERIODO_CONTABLE` que se va a cargar |
+| 6d | `DB Insert` **#390** | **INSERT** (generado por KNIME, sin SQL escrito a mano) | El resultado del paso 6c | **Aquí se crean las filas**: inserta todo lo anterior dentro de `liberty_pruebas_actuaria.dbo.PL_COL_DATOS_COCO_Comisiones` |
+| 7a | `DB SQL Executor` **#403** | **UPDATE** (SQL escrito a mano) | `liberty.apoyo.dwh_tomadores`, `LIBERTY.AMOCOM.RETORNOS_IAXIS`, `COMPANIA_CUENTAS_CUIF`, `COMPANIA_CUENTAS_SAP` | **Corrige filas que ya existen**: completa tomador, beneficiario y cuentas contables SAP/CUIF |
+| 7b | `DB SQL Executor` **#410** | **UPDATE** (SQL escrito a mano) | `liberty.prod.dwh_pol_amp_h` | **Corrige filas que ya existen**: calcula el % de comisión de `Comision_intermediacion` |
+| 8 | `Excel Reader` **#402/#408** → `DB Insert` **#405/#406** | INSERT (generado por KNIME) hacia otras tablas | Excel `Homologaciones_PUC_CUIF_SAP.xlsx` | No toca `PL_COL_DATOS_COCO_Comisiones` directamente — recarga `COMPANIA_CUENTAS_SAP`/`COMPANIA_CUENTAS_CUIF`, que el paso 7a necesita para funcionar |
+
+**Para leer la tabla de un vistazo:** los pasos 1 a 6 son los que *crean* las filas (todo pasa en memoria
+hasta el `DB Insert #390`, que es el único momento en que algo se escribe físicamente). Los pasos 7a y 7b
+no crean filas nuevas, solo *editan* columnas de las filas que el paso 6 ya insertó. El paso 8 es un flujo
+aparte que solo mantiene actualizadas dos tablas de apoyo que usa el paso 7a.
+
 ## Los 5 conceptos que se unen antes de cargar la tabla
 
 | # | Concepto (`Concepto_nivel_3`) | Qué es, en palabras simples | Tabla(s) origen | SQL |
