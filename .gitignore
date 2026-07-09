@@ -3,10 +3,10 @@ CLAUDE.md
 # Configuración local de Claude Code
 .claude/
 
-P&G_COCO.knwf
-
+*.knwf
+P&G COCO\notebooks\credenciales_local.py
 notebooks/credenciales_local.py
-credenciales_local.py
+*credenciales_local.py
 # Python
 __pycache__/
 *.pyc
